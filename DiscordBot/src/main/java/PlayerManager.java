@@ -8,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
@@ -69,7 +68,7 @@ public class PlayerManager {
                 musicManager.scheduler.queue(track);
                 EmbedBuilder eb = new EmbedBuilder()
                 .setColor(Color.red)
-                .setTitle(track.getInfo().title)
+                .setTitle("Трек запущен "+track.getInfo().title)
                 .setDescription(Utils.DurationFormatLong(track.getInfo().length))
                 .setAuthor(track.getInfo().author)
                         .setImage(img(trackUrl));
@@ -85,12 +84,11 @@ public class PlayerManager {
                 }
                 EmbedBuilder eb = new EmbedBuilder()
                         .setColor(Color.red)
-                        .setTitle(playlist.getName())
+                        .setTitle("Плейлист "+playlist.getName()+" запущен")
                         .setDescription(Utils.DurationFormatLong(time))
                         .setImage(img2(trackUrl));
                 channel2.sendMessageEmbeds(eb.build()).queue();
             }
-
             @Override
             public void noMatches() {
 
